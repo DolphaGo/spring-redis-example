@@ -19,14 +19,20 @@ repositories {
 }
 
 dependencies {
+
+    // spring-data-redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+
+    //embedded-redis
+    implementation 'it.ozimov:embedded-redis:0.7.2'
+
+    implementation 'org.apache.commons:commons-lang3'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.projectreactor:reactor-test'
 }
 
 test {
