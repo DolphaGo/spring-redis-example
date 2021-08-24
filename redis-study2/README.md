@@ -92,3 +92,19 @@ my-redis:6379>
 ]
 ```
 redis server의 ip 주소는 172.18.0.2 라는 것만 알고 넘어가면 된다.
+
+
+- cli로 값을 직접 넣는 것은 byte 통신을 타지 않아서 바로 값이 보이는데,
+- RedisTemplate를 이용하면 byte를 이용한 통신을 하기 때문에 값을 찾을 수 없는 현상이 있다.
+  - 예를 들어서, redis-cli로 (key = abc, value = 123)을 넣고, RedisTemplate를 통해서 get(abc)를 해봤자 null이 나온다.
+  - 왜냐하면 key 자체도 byte로 변환되어서 넘어가기 때문이다.
+  - 그리고 클래스는 항상 Serialize 인터페이스를 구현해야 한다.
+
+
+> RedisTemplate의 다양한 Operations
+
+- opsForValue()
+- ValueOperation (Strings, Value..)
+- SetOperation (집합)
+  - 합집합, 교집합, 차집합, 집합 내 값 존재 유무 등을 수행하는 메서드 제공
+- 
